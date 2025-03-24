@@ -15,7 +15,7 @@ const canvasHeight = 500;
 const letterA = {
   "size": 80,
   "offsetx": 0,
-  "offsety": 35
+  "offsety": -70
 }
 
 const letterB = {
@@ -56,11 +56,11 @@ function draw () {
   // compute the center of the canvas
   let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 1.6;
-
+  
   // draw the letters A, B, C from saved data
   drawLetter(center_x - 250, center_y, letterA);
-  drawLetter(center_x      , center_y, letterB);
-  drawLetter(center_x + 250, center_y, letterC);
+  //drawLetter(center_x      , center_y, letterB);
+  //drawLetter(center_x + 250, center_y, letterC);
 }
 
 function drawLetter(posx, posy, letterData) {
@@ -69,12 +69,27 @@ function drawLetter(posx, posy, letterData) {
   let pos2x = posx + letterData["offsetx"];
   let pos2y = posy + letterData["offsety"];
 
-  // draw two circles
   fill(darkGreen);
-  ellipse(posx, posy, 150, 150);
-  fill(lightGreen);
-  ellipse(pos2x, pos2y, size2, size2);
+
+  ellipse(posx - 30, posy - 20, 60, 150);
+  ellipse(posx + 30, posy - 20, 60, 150);
+
+
+  ellipse(pos2x, pos2y, 120, 150);
+
+  fill(backgroundColor);
+  ellipse(pos2x, pos2y, 30, 50);
+
+
+
+
+
+
+
 }
+
+
+
 
 function keyTyped() {
   if (key == '!') {
@@ -84,3 +99,28 @@ function keyTyped() {
     saveBlocksImages(true);
   }
 }
+
+
+
+
+
+
+
+
+
+  // // draw two circles
+  // fill(darkGreen);
+  // ellipse(posx, posy, 150, 150);
+  // fill(lightGreen);
+  // ellipse(pos2x, pos2y, size2, size2);
+
+
+  // line(
+  //   posx, posy, 
+  //   posx + 50, posy + 50
+  // );
+
+  // line(
+  //   pos2x, pos2y, 
+  //   pos2x + size2, pos2y + size2
+  // );
