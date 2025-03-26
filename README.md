@@ -12,3 +12,5 @@ The three parameters per letter:
   * `offsety` : y offset of the second circle relative to the first one
 
 test
+
+create basic abcs wih circles for rounded 70s text, dont really like how it looks
