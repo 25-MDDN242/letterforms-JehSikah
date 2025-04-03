@@ -102,9 +102,77 @@ const canvasHeight = 500;
 //   "holey": -75
 // }
 
+/*
+const letter = {
+  "arcX": 0,
+  "arcY": 0 + (strW/2),
+  "arcR": 0,
+  "arcStart": 0,
+  "arcStop": 0,
+
+  "lineX": 0,
+  "lineY": 0,
+  "lineX2": 0,
+  "lineY2": 0,
+
+  "circX": 0,
+  "circY": 0,
+  "circR": 8
+}
+*/
+
+
+const strW = 12;
 
 const letterA = {
-  
+  "arcX": 15,
+  "arcY": -30 + (strW/2),
+  "arcR": 90,
+  "arcStart": -180,
+  "arcStop": 0,
+
+  "lineX": -30,
+  "lineY": -30,
+  "lineX2": -30,
+  "lineY2": 60,
+
+  "circX": -60,
+  "circY": 60,
+  "circR": 8
+}
+
+const letterB = {
+  "arcX": 0,
+  "arcY": 60,
+  "arcR": 120,
+  "arcStart": -90,
+  "arcStop": 0,
+
+  "lineX": -60,
+  "lineY": 60,
+  "lineX2": 60,
+  "lineY2": 60,
+
+  "circX": 0,
+  "circY": -60,
+  "circR": 8
+}
+
+const letterC = {
+  "arcX": 0,
+  "arcY": 30,
+  "arcR": 60,
+  "arcStart": -90,
+  "arcStop": 0,
+
+  "lineX": 30,
+  "lineY": 30,
+  "lineX2": 30,
+  "lineY2": 60,
+
+  "circX": 0,
+  "circY": -60,
+  "circR": 8
 }
 
 
@@ -113,18 +181,24 @@ const backgroundColor  = "#acf2e7";
 const darkGreen  = "#26b29d";
 const lightGreen  = "#30dfc4";
 const strokeColor  = "#0a2d27";
+const purp = "#be4adb";
 
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
   main_canvas.parent('canvasContainer');
 
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  strokeCap(ROUND);
+  strokeJoin(ROUND);
+
   // color/stroke setup
-  //stroke(strokeColor);
-  strokeWeight(2);
+  stroke(strokeColor);
+  strokeWeight(strW);
 
   // with no animation, redrawing the screen is not necessary
-  //noLoop();
+  noLoop();
 }
 
 function draw () {
@@ -135,25 +209,61 @@ function draw () {
   let center_x = canvasWidth / 2;
   let center_y = canvasHeight / 1.6;
   
-  // draw the letters A, B, C from saved data
-  // drawLetter(center_x - 250, center_y, letterA);
-  // drawLetter(center_x      , center_y, letterB);
-  // drawLetter(center_x + 250, center_y, letterC);
+  // draw the letters A, B, C from saved data  
+  drawLetter(center_x - 250, center_y, letterA);
+  drawLetter(center_x, center_y, letterB);
+  drawLetter(center_x + 250, center_y, letterC);
 
-  
-  drawTool();
-  line(0,center_y, innerWidth, center_y);
+  //line(0, center_y, canvasWidth, center_y);
 
 }
 
 function drawLetter(posx, posy, letterData) {
- 
+  let size = 150;
+  let center = posy - (size/2);
 
+  let aX = posx + letterData["arcX"];
+  let aY = center + letterData["arcY"];
+  let aR = letterData["arcR"];
+  let aStart = letterData["arcStart"];
+  let aStop = letterData["arcStop"];
+
+  let lX = posx + letterData["lineX"];
+  let lY = center + letterData["lineY"];
+  let lX2 = posx + letterData["lineX2"];
+  let lY2 = center + letterData["lineY2"];
+
+  let cX = posx + letterData["circX"];
+  let cY = center + letterData["circY"];
+  let cR = letterData["circR"];
+
+
+
+  noFill();
+  
+  //grid//
+  grid(posx, center, size);
+  ////////
+  
+  stroke(purp);
+ 
+  arc(aX, aY, aR, aR, aStart, aStop);
+  line(lX, lY, lX2, lY2);
+  circle(cX, cY, cR);
 
 }
 
-
-
+function grid(x, y, size) {
+  push();
+  stroke("black");
+  strokeWeight(0.5);
+  rect(x, y, size);
+  rect(x, y, size*3/5, size);
+  rect(x, y, size/5, size);
+  rect(x, y, size, size*3/5);
+  rect(x, y, size, size/5);
+  pop();
+}
 
 function keyTyped() {
   if (key == '!') {
@@ -173,187 +283,187 @@ function keyTyped() {
 /////curve tool
 
 
-var x1 = 100;
-var y1 = 120;
+// var x1 = 100;
+// var y1 = 120;
 
-var x2 = 80;
-var y2 = 200;
+// var x2 = 80;
+// var y2 = 200;
 
-var x3 = 180;
-var y3 = 175;
+// var x3 = 180;
+// var y3 = 175;
 
-var x4 = 30;
-var y4 = 175;
+// var x4 = 30;
+// var y4 = 175;
 
-var x5 = 50;
-var y5 = 150;
+// var x5 = 50;
+// var y5 = 150;
 
-var x6 = 150;
-var y6 = 250;
+// var x6 = 150;
+// var y6 = 250;
 
-var d1 = false;
-var d2 = false;
-var d4 = false;
-var d3 = false;
-var d5 = false;
-var d6 = false;
+// var d1 = false;
+// var d2 = false;
+// var d4 = false;
+// var d3 = false;
+// var d5 = false;
+// var d6 = false;
 
-/*
-A
-(113,-140)
-(283,269)
-(201,381)
-(245,260)
-(318,383)
-(459,158)
+// /*
+// A
+// (113,-140)
+// (283,269)
+// (201,381)
+// (245,260)
+// (318,383)
+// (459,158)
 
-B
-(364,-134)
-(322,128)
-(345,396)
-(424,338)
-(319,310)
-(-30,831)
+// B
+// (364,-134)
+// (322,128)
+// (345,396)
+// (424,338)
+// (319,310)
+// (-30,831)
 
-C
-(695,186)
-(382,386)
-(253,357)
-(275,264)
-(359,248)
-(441,425)
+// C
+// (695,186)
+// (382,386)
+// (253,357)
+// (275,264)
+// (359,248)
+// (441,425)
 
-D
-(189,44)
-(333,109)
-(362,388)
-(271,385)
-(365,291)
-(922,485)
+// D
+// (189,44)
+// (333,109)
+// (362,388)
+// (271,385)
+// (365,291)
+// (922,485)
 
-*/
+// */
 
 
 
-function drawTool() {
+// function drawTool() {
 
   
-  funv(width-150,height-120);
-  noFill();
-  stroke(3);
-  beginShape();
-  curveVertex(x1,y1);
+//   funv(width-150,height-120);
+//   noFill();
+//   stroke(3);
+//   beginShape();
+//   curveVertex(x1,y1);
 
-  curveVertex(x2,y2);
-  curveVertex(x3,y3);
-  curveVertex(x4,y4);
-  curveVertex(x5,y5);
+//   curveVertex(x2,y2);
+//   curveVertex(x3,y3);
+//   curveVertex(x4,y4);
+//   curveVertex(x5,y5);
 
-  curveVertex(x6,y6);
+//   curveVertex(x6,y6);
   
-  endShape();
+//   endShape();
   
-  stroke(0);
+//   stroke(0);
   
   
   
- // bezier(x1,y1,x2,y2, x3, y3, x4, y4);
-  ellipse(x1,y1,10,10);
-  ellipse(x6,y6,10,10);
+//  // bezier(x1,y1,x2,y2, x3, y3, x4, y4);
+//   ellipse(x1,y1,10,10);
+//   ellipse(x6,y6,10,10);
   
-  ellipse(x2,y2,10,10); 
-  ellipse(x3,y3,10,10);
-  ellipse(x4,y4,10,10);
-  ellipse(x5,y5,10,10);
-  stroke(200);
+//   ellipse(x2,y2,10,10); 
+//   ellipse(x3,y3,10,10);
+//   ellipse(x4,y4,10,10);
+//   ellipse(x5,y5,10,10);
+//   stroke(200);
 
-  line(x1, y1, x2, y2);
+//   line(x1, y1, x2, y2);
 
-  line(x5,y5,x6,y6);
+//   line(x5,y5,x6,y6);
 
-  //text by points
-  fill(0,0,255,100);
-  noStroke();
-  text("("+x1+","+y1+")",x1,y1);
-  text("("+x2+","+y2+")",x2,y2);
-  text("("+x3+","+y3+")",x3,y3);
-  text("("+x4+","+y4+")",x4,y4);
-  text("("+x5+","+y5+")",x5,y5);
-  text("("+x6+","+y6+")",x6,y6);
+//   //text by points
+//   fill(0,0,255,100);
+//   noStroke();
+//   text("("+x1+","+y1+")",x1,y1);
+//   text("("+x2+","+y2+")",x2,y2);
+//   text("("+x3+","+y3+")",x3,y3);
+//   text("("+x4+","+y4+")",x4,y4);
+//   text("("+x5+","+y5+")",x5,y5);
+//   text("("+x6+","+y6+")",x6,y6);
    
   
-  if(d1){
-    x1=mouseX;
-    y1=mouseY;
-  }
-  if(d2){
-    x2=mouseX;
-    y2=mouseY;
-  }
-  if(d3){
-    x3=mouseX;
-    y3=mouseY;
-  }
-  if(d4){
-    x4=mouseX;
-    y4=mouseY;
-  }
-  if(d5){
-    x5=mouseX;
-    y5=mouseY;
-  }
-  if(d6){
-    x6=mouseX;
-    y6=mouseY;
-  }
-}
+//   if(d1){
+//     x1=mouseX;
+//     y1=mouseY;
+//   }
+//   if(d2){
+//     x2=mouseX;
+//     y2=mouseY;
+//   }
+//   if(d3){
+//     x3=mouseX;
+//     y3=mouseY;
+//   }
+//   if(d4){
+//     x4=mouseX;
+//     y4=mouseY;
+//   }
+//   if(d5){
+//     x5=mouseX;
+//     y5=mouseY;
+//   }
+//   if(d6){
+//     x6=mouseX;
+//     y6=mouseY;
+//   }
+// }
 
-function mouseDragged(){
-  if(dist(mouseX,mouseY,x1,y1)<10){
-    d1=true;
-  }
-  if(dist(mouseX,mouseY,x2,y2)<10){
-    d2=true;
-  }
-  if(dist(mouseX,mouseY,x3,y3)<10){
-    d3=true;
-  }
-  if(dist(mouseX,mouseY,x4,y4)<10){
-    d4=true;
-  }
-  if(dist(mouseX,mouseY,x5,y5)<10){
-    d5=true;
-  }
-  if(dist(mouseX,mouseY,x6,y6)<10){
-    d6=true;
-  }
-}
+// function mouseDragged(){
+//   if(dist(mouseX,mouseY,x1,y1)<10){
+//     d1=true;
+//   }
+//   if(dist(mouseX,mouseY,x2,y2)<10){
+//     d2=true;
+//   }
+//   if(dist(mouseX,mouseY,x3,y3)<10){
+//     d3=true;
+//   }
+//   if(dist(mouseX,mouseY,x4,y4)<10){
+//     d4=true;
+//   }
+//   if(dist(mouseX,mouseY,x5,y5)<10){
+//     d5=true;
+//   }
+//   if(dist(mouseX,mouseY,x6,y6)<10){
+//     d6=true;
+//   }
+// }
 
-function mouseReleased(){
-  d1=false;
-  d2=false;
-  d3=false;
-  d4=false;
-  d5=false;
-  d6=false;
-}
+// function mouseReleased(){
+//   d1=false;
+//   d2=false;
+//   d3=false;
+//   d4=false;
+//   d5=false;
+//   d6=false;
+// }
 
-function funv(_x,_y){
-  noStroke();
-  fill(100);
-  textSize(14);
-  text("beginShape();",_x,_y);
-  text("curveVertex("+x1+","+y1+");",_x,_y+15);
-  text("curveVertex("+x2+","+y2+");",_x,_y+30);
-  text("curveVertex("+x3+","+y3+");",_x,_y+45);
-  text("curveVertex("+x4+","+y4+");",_x,_y+60);
-  text("curveVertex("+x5+","+y5+");",_x,_y+75);
-  text("curveVertex("+x6+","+y6+");",_x,_y+90);
-  text("endShape();",_x,_y+105);
-}
+// function funv(_x,_y){
+//   noStroke();
+//   fill(100);
+//   textSize(14);
+//   text("beginShape();",_x,_y);
+//   text("curveVertex("+x1+","+y1+");",_x,_y+15);
+//   text("curveVertex("+x2+","+y2+");",_x,_y+30);
+//   text("curveVertex("+x3+","+y3+");",_x,_y+45);
+//   text("curveVertex("+x4+","+y4+");",_x,_y+60);
+//   text("curveVertex("+x5+","+y5+");",_x,_y+75);
+//   text("curveVertex("+x6+","+y6+");",_x,_y+90);
+//   text("endShape();",_x,_y+105);
+// }
 
 
-////////end tool
+// ////////end tool
 
 
 
