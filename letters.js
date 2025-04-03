@@ -1,188 +1,597 @@
+const C = 20;
+const strW = 12;
+
 const alphabet = {
   "default": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": -C,
+    "arcR": C*2,
+    "arcStart": -180,
+    "arcStop": 90,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": 0,
+    "lineY2": C,
+
+    "circX": 0,
+    "circY": C*2
   },
+
   "A": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": C/2,
+    "arcY": -C/2,
+    "arcR": C*3,
+    "arcStart": -180,
+    "arcStop": 0,
+
+    "lineX": -C,
+    "lineY": -C/2,
+    "lineX2": -C,
+    "lineY2": C*2,
+
+    "circX": -C*2,
+    "circY": C*2
   },
+
   "B": {
-    "size": 75,
-    "offsetx": 0,
-    "offsety": -70
+    "arcX": 0,
+    "arcY": C*2,
+    "arcR": C*4,
+    "arcStart": -90,
+    "arcStop": 0,
+
+    "lineX": -C*2,
+    "lineY": C*2,
+    "lineX2": C*2,
+    "lineY2": C*2,
+
+    "circX": 0,
+    "circY": -C*2
   },
+
   "C": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": C,
+    "arcR": C*2,
+    "arcStart": -90,
+    "arcStop": 0,
+
+    "lineX": C,
+    "lineY": C,
+    "lineX2": C,
+    "lineY2": C*2,
+
+    "circX": 0,
+    "circY": -C*2
   },
+
   "D": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": -C*2,
+    "arcY": C,
+    "arcR": C*3,
+    "arcStart": -90,
+    "arcStop": 0,
+
+    "lineX": -C*2,
+    "lineY": -C*2,
+    "lineX2": C*2,
+    "lineY2": -C*2,
+
+    "circX": C,
+    "circY": C
   },
+
   "E": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": 90,
+    "arcStop": -180,
+
+    "lineX": -C*2,
+    "lineY": -C*2,
+    "lineX2": -C*2,
+    "lineY2": 0,
+
+    "circX": C,
+    "circY": -C
   },
+
   "F": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": -180,
+    "arcStop": -90,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": C*2,
+    "lineY2": 0,
+
+    "circX": C*2,
+    "circY": -C*2
   },
+
   "G": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": -C*2,
+    "arcY": C*2,
+    "arcR": C*4,
+    "arcStart": -90,
+    "arcStop": 0,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": 0,
+    "lineY2": -C*2,
+
+    "circX": 0,
+    "circY": 0
   },
+
   "H": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": -C*2,
+    "arcY": C*2,
+    "arcR": C*4,
+    "arcStart": -90,
+    "arcStop": 0,
+
+    "lineX": -C*2,
+    "lineY": -C*2,
+    "lineX2": C*2,
+    "lineY2": -C*2,
+
+    "circX": C*2,
+    "circY": 0
   },
+
   "I": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C,
+    "arcY": -C,
+    "arcR": C*2,
+    "arcStart": 180,
+    "arcStop": -90,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": 0,
+    "lineY2": C*2,
+
+    "circX": 0,
+    "circY": -C
   },
+
   "J": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": -C,
+    "arcR": C*2,
+    "arcStart": -90,
+    "arcStop": 0,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": 0,
+    "lineY2": C*2,
+
+    "circX": 0,
+    "circY": 0
   },
+
   "K": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C*2,
+    "arcY": C*2,
+    "arcR": C*4,
+    "arcStart": 180,
+    "arcStop": -90,
+
+    "lineX": 0,
+    "lineY": -C*2,
+    "lineX2": 0,
+    "lineY2": 0,
+
+    "circX": -C*2,
+    "circY": 0
   },
+
   "L": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": C,
+    "arcR": C*2,
+    "arcStart": 90,
+    "arcStop": -180,
+
+    "lineX": -C,
+    "lineY": -C*2,
+    "lineX2": -C,
+    "lineY2": C,
+
+    "circX": C,
+    "circY": -C
   },
+
   "M": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C,
+    "arcY": C,
+    "arcR": C*2,
+    "arcStart": 0,
+    "arcStop": 90,
+
+    "lineX": C*2,
+    "lineY": -C*2,
+    "lineX2": C*2,
+    "lineY2": C,
+
+    "circX": -C,
+    "circY": -C
   },
+
   "N": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": -C*2,
+    "arcY": -C*2,
+    "arcR": C*8,
+    "arcStart": 0,
+    "arcStop": 90,
+
+    "lineX": -C*2,
+    "lineY": -C*2,
+    "lineX2": -C*2,
+    "lineY2": -C,
+
+    "circX": -C*2,
+    "circY": -C
   },
+
   "O": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": -C*2,
+    "arcY": -C*2,
+    "arcR": C*8,
+    "arcStart": 0,
+    "arcStop": 90,
+
+    "lineX": -C*2,
+    "lineY": -C*2,
+    "lineX2": C*2,
+    "lineY2": -C*2,
+
+    "circX": -C*2,
+    "circY": -C*2
   },
+
   "P": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": 90,
+    "arcStop": -180,
+
+    "lineX": C,
+    "lineY": -C*2,
+    "lineX2": C,
+    "lineY2": 0,
+
+    "circX": -C,
+    "circY": -C*2
   },
+
   "Q": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C,
+    "arcY": C,
+    "arcR": C*2,
+    "arcStart": -90,
+    "arcStop": 90,
+
+    "lineX": -C*2,
+    "lineY": C*2,
+    "lineX2": C,
+    "lineY2": C*2,
+
+    "circX": 0,
+    "circY": -C*2
   },
+
   "R": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": C,
+    "arcR": C*2,
+    "arcStart": 0,
+    "arcStop": 90,
+
+    "lineX": C,
+    "lineY": -C*2,
+    "lineX2": C,
+    "lineY2": 0,
+
+    "circX": -C,
+    "circY": -C*2
   },
+
   "S": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C,
+    "arcY": -C*2,
+    "arcR": C*2,
+    "arcStart": 90,
+    "arcStop": 180,
+
+    "lineX": C,
+    "lineY": -C,
+    "lineX2": C,
+    "lineY2": C*2,
+
+    "circX": 0,
+    "circY": -C*2
   },
+
   "T": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C,
+    "arcY": -C,
+    "arcR": C*2,
+    "arcStart": -90,
+    "arcStop": 0,
+
+    "lineX": -C*2,
+    "lineY": -C*2,
+    "lineX2": C,
+    "lineY2": -C*2,
+
+    "circX": C*2,
+    "circY": C*2
   },
+
   "U": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C,
+    "arcY": -C,
+    "arcR": C*4,
+    "arcStart": 90,
+    "arcStop": 180,
+
+    "lineX": -C,
+    "lineY": -C,
+    "lineX2": 0,
+    "lineY2": -C,
+
+    "circX": C,
+    "circY": -C
   },
+
   "V": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": -C*2,
+    "arcY": -C*2,
+    "arcR": C*4,
+    "arcStart": 0,
+    "arcStop": 90,
+
+    "lineX": -C*2,
+    "lineY": C*2,
+    "lineX2": C*2,
+    "lineY2": C*2,
+
+    "circX": C*2,
+    "circY": 0
   },
+
   "W": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": 0 ,
+    "arcR": C*2,
+    "arcStart": 180,
+    "arcStop": -90,
+
+    "lineX": -C,
+    "lineY": 0,
+    "lineX2": -C,
+    "lineY2": C,
+
+    "circX": C,
+    "circY": C
   },
+
   "X": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C*2,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": 180,
+    "arcStop": -90,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": 0,
+    "lineY2": C*2,
+
+    "circX": -C*2,
+    "circY": -C*2
   },
+
   "Y": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": C*2,
+    "arcY": C*2,
+    "arcR": C*2,
+    "arcStart": 180,
+    "arcStop": -90,
+
+    "lineX": -C,
+    "lineY": -C*2,
+    "lineX2": -C,
+    "lineY2": C*2,
+
+    "circX": C,
+    "circY": -C
   },
+
   "Z": {
-    "size": 50,
-    "offsetx": 15,
-    "offsety": 0
+    "arcX": 0,
+    "arcY": -C,
+    "arcR": C*2,
+    "arcStart": 180,
+    "arcStop": 0,
+
+    "lineX": C,
+    "lineY": -C,
+    "lineX2": C,
+    "lineY2": C*2,
+
+    "circX": -C,
+    "circY": C*2
   },
+
   "0": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": C,
+    "arcY": -C,
+    "arcR": C*4,
+    "arcStart": 90,
+    "arcStop": 180,
+
+    "lineX": C,
+    "lineY": -C,
+    "lineX2": C,
+    "lineY2": C,
+
+    "circX": 0,
+    "circY": -C
   },
+
   "1": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": C,
+    "arcY": -C*2,
+    "arcR": C*2,
+    "arcStart": 90,
+    "arcStop": 180,
+
+    "lineX": C,
+    "lineY": -C,
+    "lineX2": C,
+    "lineY2": C*2,
+
+    "circX": 0,
+    "circY": 0
   },
+
   "2": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": -C,
+    "arcY": C*2,
+    "arcR": C*4,
+    "arcStart": -90,
+    "arcStop": 0,
+
+    "lineX": -C,
+    "lineY": -C*2,
+    "lineX2": -C,
+    "lineY2": 0,
+
+    "circX": C,
+    "circY": 0
   },
+  
   "3": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": C,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": 90,
+    "arcStop": -90,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": -C,
+    "lineY2": 0,
+
+    "circX": 0,
+    "circY": 0
   },
+
   "4": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": 0,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": 90,
+    "arcStop": -90,
+
+    "lineX": C*2,
+    "lineY": -C*2,
+    "lineX2": C*2,
+    "lineY2": C*2,
+
+    "circX": -C,
+    "circY": 0
   },
+
   "5": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": 0,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": 90,
+    "arcStop": -90,
+
+    "lineX": C,
+    "lineY": 0,
+    "lineX2": -C*2,
+    "lineY2": 0,
+
+    "circX": C*2,
+    "circY": -C*2
   },
+
   "6": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": 0,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": 90,
+    "arcStop": -90,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": C*2,
+    "lineY2": 0,
+
+    "circX": C*2,
+    "circY": -C*2
   },
+
   "7": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": 0,
+    "arcY": 0,
+    "arcR": C*4,
+    "arcStart": 0,
+    "arcStop": 180,
+
+    "lineX": 0,
+    "lineY": 0,
+    "lineX2": 0,
+    "lineY2": -C*2,
+
+    "circX": 0,
+    "circY": 0
   },
+
   "8": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": 0,
+    "arcY": C*2,
+    "arcR": C*4,
+    "arcStart": 180,
+    "arcStop": 0,
+
+    "lineX": -C*2,
+    "lineY": -C,
+    "lineX2": C*2,
+    "lineY2": -C,
+
+    "circX": 0,
+    "circY": C*2
   },
+
   "9": {
-    "size": 40,
-    "offsetx": 0,
-    "offsety": 17
+    "arcX": 0,
+    "arcY": C*2,
+    "arcR": C*4,
+    "arcStart": 180,
+    "arcStop": 0,
+
+    "lineX": -C*2,
+    "lineY": -C,
+    "lineX2": C*2,
+    "lineY2": -C,
+
+    "circX": 0,
+    "circY": -C*2
   }
 
 }

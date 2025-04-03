@@ -122,7 +122,6 @@ const letter = {
 */
 
 
-const strW = 12;
 
 const letterA = {
   "arcX": 15,
