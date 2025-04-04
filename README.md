@@ -14,3 +14,11 @@ The three parameters per letter:
 test
 
 create basic abcs wih circles for rounded 70s text, dont really like how it looks
+
+
+experimented w/ curves
+
+abandoned those and made minecraft thing/unown
+
+glow: https://www.youtube.com/watch?v=iIWH3IUYHzM 
+interpolates

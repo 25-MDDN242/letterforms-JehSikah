@@ -539,8 +539,8 @@ const alphabet = {
 
     "lineX": 0,
     "lineY": 0,
-    "lineX2": C*2,
-    "lineY2": 0,
+    "lineX2": 0,
+    "lineY2": C*2,
 
     "circX": C*2,
     "circY": -C*2
