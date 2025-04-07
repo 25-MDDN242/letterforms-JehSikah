@@ -1,11 +1,14 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#000";
+var systemBackgroundColor = "#efecd2";
 var systemLineColor = "#000090";
 var systemBoxColor = "#C73869";
 
 /* internal constants */
 const strokeColor  = "#be4adb";
 let stroke2 = "#c264da";
+
+
+let strW = 12;
 
 /*
 
@@ -94,11 +97,26 @@ function grid(x, y, size) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+  let old_aStart = oldObj["arcStart"];
+  let new_aStart = newObj["arcStart"];
+  if (old_aStart > new_aStart) {
+    new_aStart += 360;
+  }
+  let old_aStop = oldObj["arcStop"];
+  let new_aStop = newObj["arcStop"];
+  if (old_aStop > new_aStop) {
+    new_aStop  += 360;
+  }
+
   new_letter["arcX"]    = map(percent, 0, 100, oldObj["arcX"], newObj["arcX"]);
   new_letter["arcY"]    = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
   new_letter["arcR"]    = map(percent, 0, 100, oldObj["arcR"], newObj["arcR"]);
-  new_letter["arcStart"]    = map(percent, 0, 100, oldObj["arcStart"], newObj["arcStart"]);
-  new_letter["arcStop"]    = map(percent, 0, 100, oldObj["arcStop"], newObj["arcStop"]);
+
+  // new_letter["arcStart"]    = map(percent, 0, 100, oldObj["arcStart"], newObj["arcStart"]);
+  // new_letter["arcStop"]    = map(percent, 0, 100, oldObj["arcStop"], newObj["arcStop"]);
+
+  new_letter["arcStart"]    = map(percent, 0, 100, old_aStart, new_aStart);
+  new_letter["arcStop"]    = map(percent, 0, 100, old_aStop, new_aStop);
 
   new_letter["lineX"]    = map(percent, 0, 100, oldObj["lineX"], newObj["lineX"]);
   new_letter["lineY"]    = map(percent, 0, 100, oldObj["lineY"], newObj["lineY"]);

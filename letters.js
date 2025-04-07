@@ -1,12 +1,11 @@
 const C = 20;
-const strW = 12;
 
 const alphabet = {
   "default": {
     "arcX": 0,
     "arcY": -C,
     "arcR": C*2,
-    "arcStart": -180,
+    "arcStart": 180,
     "arcStop": 90,
 
     "lineX": 0,
@@ -22,7 +21,7 @@ const alphabet = {
     "arcX": C/2,
     "arcY": -C/2,
     "arcR": C*3,
-    "arcStart": -180,
+    "arcStart": 180,
     "arcStop": 0,
 
     "lineX": -C,
@@ -38,7 +37,7 @@ const alphabet = {
     "arcX": 0,
     "arcY": C*2,
     "arcR": C*4,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 0,
 
     "lineX": -C*2,
@@ -54,7 +53,7 @@ const alphabet = {
     "arcX": 0,
     "arcY": C,
     "arcR": C*2,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 0,
 
     "lineX": C,
@@ -70,7 +69,7 @@ const alphabet = {
     "arcX": -C*2,
     "arcY": C,
     "arcR": C*3,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 0,
 
     "lineX": -C*2,
@@ -87,7 +86,7 @@ const alphabet = {
     "arcY": 0,
     "arcR": C*4,
     "arcStart": 90,
-    "arcStop": -180,
+    "arcStop": 180,
 
     "lineX": -C*2,
     "lineY": -C*2,
@@ -102,8 +101,8 @@ const alphabet = {
     "arcX": 0,
     "arcY": 0,
     "arcR": C*4,
-    "arcStart": -180,
-    "arcStop": -90,
+    "arcStart": 180,
+    "arcStop": 270,
 
     "lineX": 0,
     "lineY": 0,
@@ -118,7 +117,7 @@ const alphabet = {
     "arcX": -C*2,
     "arcY": C*2,
     "arcR": C*4,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 0,
 
     "lineX": 0,
@@ -134,7 +133,7 @@ const alphabet = {
     "arcX": -C*2,
     "arcY": C*2,
     "arcR": C*4,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 0,
 
     "lineX": -C*2,
@@ -151,7 +150,7 @@ const alphabet = {
     "arcY": -C,
     "arcR": C*2,
     "arcStart": 180,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": 0,
     "lineY": 0,
@@ -166,7 +165,7 @@ const alphabet = {
     "arcX": 0,
     "arcY": -C,
     "arcR": C*2,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 0,
 
     "lineX": 0,
@@ -183,7 +182,7 @@ const alphabet = {
     "arcY": C*2,
     "arcR": C*4,
     "arcStart": 180,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": 0,
     "lineY": -C*2,
@@ -199,7 +198,7 @@ const alphabet = {
     "arcY": C,
     "arcR": C*2,
     "arcStart": 90,
-    "arcStop": -180,
+    "arcStop": 180,
 
     "lineX": -C,
     "lineY": -C*2,
@@ -278,7 +277,7 @@ const alphabet = {
     "arcX": C,
     "arcY": C,
     "arcR": C*2,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 90,
 
     "lineX": -C*2,
@@ -326,7 +325,7 @@ const alphabet = {
     "arcX": C,
     "arcY": -C,
     "arcR": C*2,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 0,
 
     "lineX": -C*2,
@@ -375,7 +374,7 @@ const alphabet = {
     "arcY": 0 ,
     "arcR": C*2,
     "arcStart": 180,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": -C,
     "lineY": 0,
@@ -391,7 +390,7 @@ const alphabet = {
     "arcY": 0,
     "arcR": C*4,
     "arcStart": 180,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": 0,
     "lineY": 0,
@@ -407,7 +406,7 @@ const alphabet = {
     "arcY": C*2,
     "arcR": C*2,
     "arcStart": 180,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": -C,
     "lineY": -C*2,
@@ -470,7 +469,7 @@ const alphabet = {
     "arcX": -C,
     "arcY": C*2,
     "arcR": C*4,
-    "arcStart": -90,
+    "arcStart": 270,
     "arcStop": 0,
 
     "lineX": -C,
@@ -487,7 +486,7 @@ const alphabet = {
     "arcY": 0,
     "arcR": C*4,
     "arcStart": 90,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": 0,
     "lineY": 0,
@@ -503,7 +502,7 @@ const alphabet = {
     "arcY": 0,
     "arcR": C*4,
     "arcStart": 90,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": C*2,
     "lineY": -C*2,
@@ -519,7 +518,7 @@ const alphabet = {
     "arcY": 0,
     "arcR": C*4,
     "arcStart": 90,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": C,
     "lineY": 0,
@@ -535,7 +534,7 @@ const alphabet = {
     "arcY": 0,
     "arcR": C*4,
     "arcStart": 90,
-    "arcStop": -90,
+    "arcStop": 270,
 
     "lineX": 0,
     "lineY": 0,

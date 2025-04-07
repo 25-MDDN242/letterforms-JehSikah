@@ -10,8 +10,8 @@ const sliderInfo = [
   ["arcX", -bound, bound],
   ["arcY", -bound, bound],
   ["arcR", bound, C*8],
-  ["arcStart", -180, 180],
-  ["arcStop", -180, 180],
+  ["arcStart", 0, 360],
+  ["arcStop", 0, 360],
 
   ["lineX", -bound, bound],
   ["lineY", -bound, bound],
