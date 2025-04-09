@@ -212,12 +212,58 @@ function draw () {
     }
   }
 
+
+
+
+
+  /////DRAW UNDER HERE
   background(systemBackgroundColor);
+  let orX = width-100;
+  let orY = height-50;
+
+  push();
+  noStroke();
+  fill("pink");
+  circle(orX, orY, 300);
+
+  fill(255);
+  circle(orX - 100, orY - 70, 50);
+  circle(orX + 50, orY - 90, 50);
+  
+  fill(0);
+  circle(orX - 120, orY - 70, 10);
+  circle(orX + 50, orY - 90, 10);
+
+  fill("#7a0029")
+  arc(orX - 20, orY - 20, 200, 130, 0, 180);
+
+  fill(255);
+  arc(orX - 20, orY - 20, 60, 39, 0, 180);
+
+
+
+  pop();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // shorthand variables to allow margin
   var o = 20
   var w2 = width - 2 * o
-  var h2 = height - 2 * o
+  var h2 = height - 2 * o - 200
   for(var i=0; i<8; i++) {
     // see if animation should be turned off
     if(chosenIsAnimating[i] && chosenCurAnimationFrame[i] >= chosenNumAnimationFrames) {

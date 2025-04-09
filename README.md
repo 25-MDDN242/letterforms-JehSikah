@@ -22,3 +22,10 @@ abandoned those and made minecraft thing/unown
 
 glow: https://www.youtube.com/watch?v=iIWH3IUYHzM 
 interpolates
+
+
+
+monster alien speech bubble
+comic sans of aliens
+
+draw loop in exhibition, under system background colour

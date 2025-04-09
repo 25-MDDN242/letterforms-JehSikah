@@ -67,8 +67,7 @@ function drawLetter(letterData) {
   noFill();
   custArc(aX, aY, aR, aStart, aStop);
 
-  strokeWeight(strW);
-  line(lX, lY, lX2, lY2);
+  custLine(lX, lY, lX2, lY2);
   fill(systemBackgroundColor);
   custCirc(cX, cY);
 
@@ -87,20 +86,26 @@ function drawLetter(letterData) {
 
 
 function custArc(x, y, r, start, stop) {
-
   let midR = r-25;
   let smR = r-40;
 
   strokeWeight(strW);
   arc(x, y, r, r, start, stop);
+
   strokeWeight(strW/2);
   arc(x, y, midR, midR, start, stop);
+
   strokeWeight(strW/4);
   arc(x, y, smR, smR, start, stop);
 }
 
-function custCirc (x, y) {
+function custLine (x, y, x2, y2) {
+  strokeWeight(strW);
+  line(x, y, x2, y2);
 
+}
+
+function custCirc (x, y) {
   noFill();
   strokeWeight(strW/4);
   circle(x, y, 30);
