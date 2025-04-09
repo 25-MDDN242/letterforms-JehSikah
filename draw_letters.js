@@ -4,11 +4,11 @@ var systemLineColor = "#000090";
 var systemBoxColor = "#C73869";
 
 /* internal constants */
-const strokeColor  = "#be4adb";
-let stroke2 = "#c264da";
+var strokeColor  = "#be4adb";
+var stroke2 = "#c264da";
 
 
-let strW = 12;
+var strW = 12;
 
 /*
 
@@ -65,10 +65,12 @@ function drawLetter(letterData) {
   strokeWeight(strW);
 
   noFill();
-  arc(aX, aY, aR, aR, aStart, aStop);
+  custArc(aX, aY, aR, aStart, aStop);
+
+  strokeWeight(strW);
   line(lX, lY, lX2, lY2);
   fill(systemBackgroundColor);
-  circle(cX, cY, 8);
+  custCirc(cX, cY);
 
 
   stroke(stroke2);
@@ -82,6 +84,31 @@ function drawLetter(letterData) {
 
   pop();
 }
+
+
+function custArc(x, y, r, start, stop) {
+
+  let midR = r-25;
+  let smR = r-40;
+
+  strokeWeight(strW);
+  arc(x, y, r, r, start, stop);
+  strokeWeight(strW/2);
+  arc(x, y, midR, midR, start, stop);
+  strokeWeight(strW/4);
+  arc(x, y, smR, smR, start, stop);
+}
+
+function custCirc (x, y) {
+
+  noFill();
+  strokeWeight(strW/4);
+  circle(x, y, 30);
+  
+  strokeWeight(strW);
+  circle(x, y, 8);
+}
+
 
 function grid(x, y, size) {
   push();
