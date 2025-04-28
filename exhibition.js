@@ -91,6 +91,9 @@ var defaultSwapWords = [
 
 const interpolation_is_on = (typeof interpolate_letter === "function")
 
+let astro, albert, back;
+let limbs, body, smile, mouth;
+
 function setup () {
   // create the drawing canvas, save the canvas element
   main_canvas = createCanvas(canvasWidth, canvasHeight);
@@ -110,6 +113,16 @@ function setup () {
   for(let i=0; i<first_word.length; i++) {
     chosenLetters.push(first_word[i]);
   }
+
+  astro = loadImage("pngs/astro.png");
+  albert = loadImage("pngs/albert.png");
+  back = loadImage("pngs/back.png");
+
+  limbs = loadImage("pngs/alLimbs.png");
+  body = loadImage("pngs/alBod.png");
+  smile = loadImage("pngs/alSmile.png");
+  mouth = loadImage("pngs/alMouth.png");
+
 }
 
 function getCharacterInterpolationObj(percent, oldObj, newObj) {
@@ -212,38 +225,136 @@ function draw () {
     }
   }
 
-
-
-
+  // shorthand variables to allow margin
+  var o = 50
+  var w2 = width - 2 * o 
+  var h2 = height - 2 * o - 250
 
   /////DRAW UNDER HERE
-  background(systemBackgroundColor);
-  let orX = width-100;
-  let orY = height-50;
-
   push();
-  noStroke();
-  fill("pink");
-  circle(orX, orY, 300);
-
-  fill(255);
-  circle(orX - 100, orY - 70, 50);
-  circle(orX + 50, orY - 90, 50);
-  
-  fill(0);
-  circle(orX - 120, orY - 70, 10);
-  circle(orX + 50, orY - 90, 10);
-
-  fill("#7a0029")
-  arc(orX - 20, orY - 20, 200, 130, 0, 180);
-
-  fill(255);
-  arc(orX - 20, orY - 20, 60, 39, 0, 180);
-
-
-
+  imageMode(CORNER);
+  background(back);
   pop();
 
+  ////"tint" background
+  let tintFluct = sin(frameCount / 10);
+  let tintAmount = map(tintFluct, -1, 1, 100, 50)
+
+  noStroke();
+  let tint = color(0,0,0);
+  tint.setAlpha(tintAmount);
+  fill(tint);
+  rect(0, 0, width, height);
+
+  ////speech bubble
+  rectMode(CORNERS);
+  let pad = 90;
+  let mid = 100;
+  let tall = 150;
+  let bot = mid + tall/2;
+  let triX = width - 420;
+
+  fill(bubble);
+  arc(
+    pad, mid, 
+    tall, tall, 
+    90, 270
+  );
+  arc(
+    width - pad, mid, 
+    tall, tall, 
+    270, 90
+  );
+  rect(
+    pad, mid - tall/2, 
+    width - pad, bot
+  );
+  triangle(
+    triX, bot,
+    triX + 80, bot, 
+    triX + 100, bot + 80
+  );
+
+
+  ////characters
+
+  imageMode(CENTER);
+  
+  
+  /*
+  image(
+    albert, 
+    alX - alSize, height - alSize, 
+    alX, height
+  );
+
+  image(
+    limbs, 
+    alX - alSize, height - alSize, 
+    alX, height
+  );
+  image(
+    body, 
+    alX - alSize, height - alSize, 
+    alX, height
+  );
+  image(
+    mouth, 
+    alX - alSize, height - alSize - mouthS, 
+    alX, height
+  );
+
+  */
+  
+  let bobAmount = sin(frameCount) * 8;
+  let bobAlt = cos(frameCount) * 8;
+
+  //console.log(bobAmount);
+
+  let alSize = 350;
+  let alX = width - (alSize/2);
+  let alY = height - (alSize/2) + 10 - bobAlt;
+
+  let bodS = 0;
+
+  /*
+  let bodS = map(mouseY, 0, height, 50,0);
+  let mouthS = map(mouseY, 0, height, 200,0);
+
+  image(
+    albert, 
+    alX, alY, 
+    alSize, alSize
+  );
+  */
+
+  if(keyIsPressed){
+    bodS = 20;
+  };
+
+  image(
+    limbs, 
+    alX, alY, 
+    alSize, alSize
+  );
+  image(
+    body, 
+    alX, alY, 
+    alSize + bodS, alSize + bodS
+  );
+  image(
+    smile, 
+    alX, alY, 
+    alSize, alSize
+  );
+
+  if(keyIsPressed){
+    image(
+      mouth, 
+      alX, alY, 
+      alSize, alSize
+    );
+  };
 
 
 
@@ -253,17 +364,8 @@ function draw () {
 
 
 
+/////DONT TOUCH
 
-
-
-
-
-
-
-  // shorthand variables to allow margin
-  var o = 20
-  var w2 = width - 2 * o
-  var h2 = height - 2 * o - 200
   for(var i=0; i<8; i++) {
     // see if animation should be turned off
     if(chosenIsAnimating[i] && chosenCurAnimationFrame[i] >= chosenNumAnimationFrames) {
@@ -276,6 +378,17 @@ function draw () {
     var obj = computeCurrentChosenChar(i);
     drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
   }
+
+/////astronaut in fornt of text
+  let asSize = 410;
+  let asX = (asSize/2) + 70;
+  let asY = height - (asSize/2) + 10;
+
+  image(
+    astro, 
+    asX, asY - bobAmount, 
+    asSize, asSize
+  );
 }
 
 function swapExhibitLetter(n, c, frameDelay) {

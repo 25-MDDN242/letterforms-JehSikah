@@ -1,19 +1,29 @@
 /* these are optional special variables which will change the system */
-var systemBackgroundColor = "#efecd2";
+var systemBackgroundColor = "#0d0320";
 var systemLineColor = "#000090";
 var systemBoxColor = "#C73869";
 
 /* internal constants */
-var strokeColor  = "#be4adb";
+var strokeColor  = "#9751bb";
 var stroke2 = "#c264da";
-
+var bubble = "#cf94ff20";
 
 var strW = 12;
 
 /*
+ffffff10
+#150b27aa
+#cf94ff
 
 light tan: #efecd2
 bright purp: #be4adb
+#c264da
+
+#b83574
+#ce6798
+#f770a7
+#9751bb
+#6a50a8
 
 colour picked
 #a09172
@@ -68,22 +78,21 @@ function drawLetter(letterData) {
   custArc(aX, aY, aR, aStart, aStop);
 
   custLine(lX, lY, lX2, lY2);
-  fill(systemBackgroundColor);
   custCirc(cX, cY);
 
 
+  
   stroke(stroke2);
   strokeWeight(strW/4);
 
   noFill();
   arc(aX, aY, aR, aR, aStart, aStop);
   line(lX, lY, lX2, lY2);
-  fill(systemBackgroundColor);
+  fill(bubble);
   circle(cX, cY, 8);
 
   pop();
 }
-
 
 function custArc(x, y, r, start, stop) {
   let midR = r-25;
