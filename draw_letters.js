@@ -10,6 +10,8 @@ var bubble = "#cf94ff20";
 
 var strW = 12;
 
+var isTalk;
+
 /*
 ffffff10
 #150b27aa
@@ -40,7 +42,9 @@ colour picked
  * following bounding box guideline:
  * from (0,0) to (100, 200)
  */
+
 function drawLetter(letterData) {
+
   // color/stroke setup
   push();
   rectMode(CENTER);
@@ -67,6 +71,18 @@ function drawLetter(letterData) {
   let cY = posY + letterData["circY"];
 
   //grid(posX, posY, size);
+
+if(letterData["mrBrightTime"]){
+  stroke2 = "#cf94ff";
+}else{
+  stroke2 = "#c264da";
+}
+
+  // if (keyIsPressed) {
+  //   stroke2 = "#cf94ff";
+  // } else {
+  //   stroke2 = "#c264da";
+  // };
 
   drawingContext.shadowBlur = 20;
   drawingContext.shadowColor = strokeColor;
@@ -138,6 +154,7 @@ function grid(x, y, size) {
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
+ 
   let old_aStart = oldObj["arcStart"];
   let new_aStart = newObj["arcStart"];
   if (old_aStart > new_aStart) {
@@ -166,6 +183,17 @@ function interpolate_letter(percent, oldObj, newObj) {
   
   new_letter["circX"]    = map(percent, 0, 100, oldObj["circX"], newObj["circX"]);
   new_letter["circY"]    = map(percent, 0, 100, oldObj["circY"], newObj["circY"]);
+
+  console.log(newObj);
+
+  if(percent < 100){
+    new_letter["mrBrightTime"] = true;
+    isTalk = true;
+  }
+  else {
+    new_letter["mrBrightTime"] = false;
+    isTalk = false;
+  }
 
   return new_letter;
 }

@@ -29,3 +29,9 @@ monster alien speech bubble
 comic sans of aliens
 
 draw loop in exhibition, under system background colour
+
+
+baby became alien ctrying to talk to human
+did a bunch of art
+variability when they talk, mouth tied into variabe in interp letter
+space bobbing

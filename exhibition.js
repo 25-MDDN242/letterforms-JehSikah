@@ -21,6 +21,8 @@ let soloCurAnimationFrame = 0;
 // Handy string of all letters available
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 
+console.log(letters.includes('A'));
+
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
 let chosenIsAnimating = [false, false, false, false, false, false, false, false];
@@ -277,39 +279,10 @@ function draw () {
 
 
   ////characters
-
   imageMode(CENTER);
-  
-  
-  /*
-  image(
-    albert, 
-    alX - alSize, height - alSize, 
-    alX, height
-  );
-
-  image(
-    limbs, 
-    alX - alSize, height - alSize, 
-    alX, height
-  );
-  image(
-    body, 
-    alX - alSize, height - alSize, 
-    alX, height
-  );
-  image(
-    mouth, 
-    alX - alSize, height - alSize - mouthS, 
-    alX, height
-  );
-
-  */
   
   let bobAmount = sin(frameCount) * 8;
   let bobAlt = cos(frameCount) * 8;
-
-  //console.log(bobAmount);
 
   let alSize = 350;
   let alX = width - (alSize/2);
@@ -317,20 +290,9 @@ function draw () {
 
   let bodS = 0;
 
-  /*
-  let bodS = map(mouseY, 0, height, 50,0);
-  let mouthS = map(mouseY, 0, height, 200,0);
-
-  image(
-    albert, 
-    alX, alY, 
-    alSize, alSize
-  );
-  */
-
-  if(keyIsPressed){
+  if(isTalk){
     bodS = 20;
-  };
+  }
 
   image(
     limbs, 
@@ -348,23 +310,15 @@ function draw () {
     alSize, alSize
   );
 
-  if(keyIsPressed){
+  if(isTalk){
     image(
       mouth, 
       alX, alY, 
       alSize, alSize
     );
-  };
+  }
 
-
-
-
-
-
-
-
-
-/////DONT TOUCH
+  /////DONT TOUCH
 
   for(var i=0; i<8; i++) {
     // see if animation should be turned off
@@ -379,7 +333,7 @@ function draw () {
     drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
   }
 
-/////astronaut in fornt of text
+  /////astronaut in fornt of text
   let asSize = 410;
   let asX = (asSize/2) + 70;
   let asY = height - (asSize/2) + 10;
