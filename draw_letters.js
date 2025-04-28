@@ -163,6 +163,7 @@ function checkLetter (letter) {
   }
   return key;
 }
+  https://www.reddit.com/r/learnpython/comments/mv3qas/dictionary_exercise_finding_a_key_given_a_value/
 */
 
 function interpolate_letter(percent, oldObj, newObj) {
