@@ -72,17 +72,13 @@ function drawLetter(letterData) {
 
   //grid(posX, posY, size);
 
-if(letterData["mrBrightTime"]){
-  stroke2 = "#cf94ff";
-}else{
-  stroke2 = "#c264da";
-}
-
-  // if (keyIsPressed) {
-  //   stroke2 = "#cf94ff";
-  // } else {
-  //   stroke2 = "#c264da";
-  // };
+  if (letterData["mrBrightTime"]) {
+    strokeColor  = "#c264da";
+    stroke2 = "#cf94ff";
+  } else {
+    strokeColor  = "#9751bb";
+    stroke2 = "#c264da";
+  }
 
   drawingContext.shadowBlur = 20;
   drawingContext.shadowColor = strokeColor;
@@ -152,6 +148,23 @@ function grid(x, y, size) {
   pop();
 }
 
+/*
+var key;
+function find_key(input_dict, target_value) {
+  let k, v;
+    key = [k for k, v in input_dict.items() if v == target_value]
+    if key:
+        return key[0]
+}
+
+function checkLetter (letter) {
+  for (let x = 0; ;) {
+
+  }
+  return key;
+}
+*/
+
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
  
@@ -186,11 +199,10 @@ function interpolate_letter(percent, oldObj, newObj) {
 
   console.log(newObj);
 
-  if(percent < 100){
+  if (percent < 100) {
     new_letter["mrBrightTime"] = true;
     isTalk = true;
-  }
-  else {
+  } else {
     new_letter["mrBrightTime"] = false;
     isTalk = false;
   }
