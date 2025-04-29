@@ -158,13 +158,29 @@ function find_key(input_dict, target_value) {
 }
 
 function checkLetter (letter) {
-  for (let x = 0; ;) {
+  for (let i = 0; ;) {
 
   }
   return key;
 }
+
   https://www.reddit.com/r/learnpython/comments/mv3qas/dictionary_exercise_finding_a_key_given_a_value/
-*/
+  node.addEventListener('keydown', function(event) {
+    const key = event.key; // "a", "1", "Shift", etc.
+  });
+
+  let key = window.key;
+  console.log(key.toUpperCase());
+
+
+
+
+  */
+
+  document.addEventListener('keydown', function(event) {
+    const pressedKey = event.key;
+    console.log(pressedKey.toUpperCase() + "  " + letters.includes(pressedKey.toUpperCase()));
+  });
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
@@ -198,13 +214,15 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["circX"]    = map(percent, 0, 100, oldObj["circX"], newObj["circX"]);
   new_letter["circY"]    = map(percent, 0, 100, oldObj["circY"], newObj["circY"]);
 
-  console.log(newObj);
-
-  if (percent < 100) {
+  // && letters.includes(pressedKey.toUpperCase())
+  if (percent < 100 && letters.includes(pressedKey.toUpperCase())) {
     new_letter["mrBrightTime"] = true;
     isTalk = true;
+  } else if (percent < 100) {
+    new_letter["mrBrightTime"] = true;
+    isTalk = false;
   } else {
-    new_letter["mrBrightTime"] = false;
+  new_letter["mrBrightTime"] = false;
     isTalk = false;
   }
 

@@ -21,8 +21,6 @@ let soloCurAnimationFrame = 0;
 // Handy string of all letters available
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?";
 
-console.log(letters.includes('A'));
-
 let chosenLetters = [];
 let chosenPrevObjs = [null, null, null, null, null, null, null, null];
 let chosenIsAnimating = [false, false, false, false, false, false, false, false];
