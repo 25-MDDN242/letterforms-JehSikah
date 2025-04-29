@@ -177,10 +177,22 @@ function checkLetter (letter) {
 
   */
 
-  document.addEventListener('keydown', function(event) {
-    const pressedKey = event.key;
-    console.log(pressedKey.toUpperCase() + "  " + letters.includes(pressedKey.toUpperCase()));
-  });
+var input;
+document.addEventListener('keydown', function(event) {
+  const pressedKey = event.key;
+
+  
+  if (pressedKey === undefined) {
+    input = "?";
+  } else if (letters.includes(pressedKey.toUpperCase()) && pressedKey != "?"){
+    input = pressedKey.toUpperCase();
+  } else {
+
+  }
+
+  console.log(input);
+});
+
 
 function interpolate_letter(percent, oldObj, newObj) {
   let new_letter = {};
@@ -215,7 +227,7 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["circY"]    = map(percent, 0, 100, oldObj["circY"], newObj["circY"]);
 
   // && letters.includes(pressedKey.toUpperCase())
-  if (percent < 100 && letters.includes(pressedKey.toUpperCase())) {
+  if (percent < 100 && letters.includes(input.toUpperCase())) {
     new_letter["mrBrightTime"] = true;
     isTalk = true;
   } else if (percent < 100) {
