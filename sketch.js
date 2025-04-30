@@ -125,7 +125,7 @@ const letter = {
 
 const letterA = {
   "arcX": 15,
-  "arcY": -30 + (strW/2),
+  "arcY": -30 + (12/2),
   "arcR": 90,
   "arcStart": -180,
   "arcStop": 0,
@@ -194,7 +194,7 @@ function setup () {
 
   // color/stroke setup
   stroke(strokeColor);
-  strokeWeight(strW);
+  strokeWeight(12);
 
   // with no animation, redrawing the screen is not necessary
   noLoop();
