@@ -70,8 +70,7 @@ function drawLetter(letterData) {
   let cX = posX + letterData["circX"];
   let cY = posY + letterData["circY"];
 
-  //grid(posX, posY, size);
-
+  //highlights typed letter
   if (letterData["mrBrightTime"]) {
     strokeColor  = "#c264da";
     stroke2 = "#cf94ff";
@@ -91,7 +90,6 @@ function drawLetter(letterData) {
 
   custLine(lX, lY, lX2, lY2);
   custCirc(cX, cY);
-
 
   
   stroke(stroke2);
@@ -135,62 +133,18 @@ function custCirc (x, y) {
   circle(x, y, 8);
 }
 
-
-function grid(x, y, size) {
-  push();
-  stroke("black");
-  strokeWeight(0.5);
-  rect(x, y, size);
-  rect(x, y, size*3/5, size);
-  rect(x, y, size/5, size);
-  rect(x, y, size, size*3/5);
-  rect(x, y, size, size/5);
-  pop();
-}
-
-/*
-var key;
-function find_key(input_dict, target_value) {
-  let k, v;
-    key = [k for k, v in input_dict.items() if v == target_value]
-    if key:
-        return key[0]
-}
-
-function checkLetter (letter) {
-  for (let i = 0; ;) {
-
-  }
-  return key;
-}
-
-  https://www.reddit.com/r/learnpython/comments/mv3qas/dictionary_exercise_finding_a_key_given_a_value/
-  node.addEventListener('keydown', function(event) {
-    const key = event.key; // "a", "1", "Shift", etc.
-  });
-
-  let key = window.key;
-  console.log(key.toUpperCase());
-
-
-
-
-  */
-
+//detects if key typed is in our alphabet
 var input;
 document.addEventListener('keydown', function(event) {
   const pressedKey = event.key;
-
   
   if (pressedKey === undefined) {
     input = "?";
   } else if (letters.includes(pressedKey.toUpperCase()) && pressedKey != "?"){
     input = pressedKey.toUpperCase();
   } else {
-
+    input = "?";
   }
-
-  console.log(input);
 });
 
 
@@ -212,9 +166,6 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["arcY"]    = map(percent, 0, 100, oldObj["arcY"], newObj["arcY"]);
   new_letter["arcR"]    = map(percent, 0, 100, oldObj["arcR"], newObj["arcR"]);
 
-  // new_letter["arcStart"]    = map(percent, 0, 100, oldObj["arcStart"], newObj["arcStart"]);
-  // new_letter["arcStop"]    = map(percent, 0, 100, oldObj["arcStop"], newObj["arcStop"]);
-
   new_letter["arcStart"]    = map(percent, 0, 100, old_aStart, new_aStart);
   new_letter["arcStop"]    = map(percent, 0, 100, old_aStop, new_aStop);
 
@@ -226,15 +177,15 @@ function interpolate_letter(percent, oldObj, newObj) {
   new_letter["circX"]    = map(percent, 0, 100, oldObj["circX"], newObj["circX"]);
   new_letter["circY"]    = map(percent, 0, 100, oldObj["circY"], newObj["circY"]);
 
-  // && letters.includes(pressedKey.toUpperCase())
-  if (percent < 100 && letters.includes(input.toUpperCase())) {
-    new_letter["mrBrightTime"] = true;
-    isTalk = true;
-  } else if (percent < 100) {
+  //highlights typed letter and makes albert talk when you type or when the words change
+  if (percent < 100 && input == "?") {
     new_letter["mrBrightTime"] = true;
     isTalk = false;
+  } else if (percent < 100) {
+    new_letter["mrBrightTime"] = true;
+    isTalk = true;
   } else {
-  new_letter["mrBrightTime"] = false;
+    new_letter["mrBrightTime"] = false;
     isTalk = false;
   }
 

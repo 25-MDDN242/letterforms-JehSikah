@@ -275,19 +275,20 @@ function draw () {
     triX + 100, bot + 80
   );
 
-
-  ////characters
-  imageMode(CENTER);
-  
+  //bobbing animations
   let bobAmount = sin(frameCount) * 8;
   let bobAlt = cos(frameCount) * 8;
 
+  //draw albert the alien
+  imageMode(CENTER);
+    
   let alSize = 350;
   let alX = width - (alSize/2);
   let alY = height - (alSize/2) + 10 - bobAlt;
 
   let bodS = 0;
 
+  //increase body size when talkeing
   if(isTalk){
     bodS = 20;
   }
@@ -317,7 +318,6 @@ function draw () {
   }
 
   /////DONT TOUCH
-
   for(var i=0; i<8; i++) {
     // see if animation should be turned off
     if(chosenIsAnimating[i] && chosenCurAnimationFrame[i] >= chosenNumAnimationFrames) {
@@ -331,7 +331,7 @@ function draw () {
     drawFromDataObject(o + i*w2/8.0, o + h2/2.0 - 120, 1.0, obj)
   }
 
-  /////astronaut in fornt of text
+  //astronaut in fornt of text
   let asSize = 410;
   let asX = (asSize/2) + 70;
   let asY = height - (asSize/2) + 10;
