@@ -5,7 +5,7 @@
 # TITLE
 by Jess Merriman
 
-_Pages: https://25-mddn242.github.io/letterforms-JehSikah/ _
+*Pages: https://25-mddn242.github.io/letterforms-JehSikah/*
 
 ### MY DESIGN PROCESS
 
@@ -14,6 +14,7 @@ My design process started by looking into interesting fonts for inspiration.
 Initially, I was inspired by funky 70's fonts cause of their fun aethstetic. From these, I mainly wanted to implement the bright colours and fun curves.
 
 ///INSERT IMAGE///
+![70's Font Precedents](RMimages/70font.jpg?raw=true "70's Font Precedents")
 
 I first tried mimicing the flow with bezier curves, however, that was quickly pushing me to the variable limit as well as not looking quite how I wanted it. Trying to manipulate a curve into a nice letter was taking me an embarrassingly long time, so I eventually decided to go a new direction.
 
@@ -23,7 +24,7 @@ I first tried mimicing the flow with bezier curves, however, that was quickly pu
 Inspired by Minecraft's enchanting table UI, I chose to replicate the Standard Galactic Alphabet. To stay under the variable limit, I aimed to create the letters in the least amount of parts possible while still looking relatively similar to the original font.
 
 To do this, I picked out the main features of the font. This original consisted of a lot of straight lines but I make wanted a more rounded version. 
-(I was also unaware the Standard Galactic Alphabet had numbers as the pictures I was using didn't include them, so I made my own)
+(*I was also unaware the Standard Galactic Alphabet had numbers as the pictures I was using didn't include them, so I made my own*)
 
 I ended up using a line, circle and an arc.
 
@@ -59,11 +60,28 @@ While on an animation high, I thought it'd be nice to add a bit of movement to t
 Finally, I added a feature that highlights each letter when typed to bring attention back to the font. This feature looks pretty nice when the code autoswaps words.
 
 
+#### CSS
+On the final day of this project, I decided to style the website itself. I wanted to make a control panel as if you were ground control observing the interaction between the astronaut and Albert. 
+
+I started by just coding internally, but since almost all the html files were layed out the same, I ended up creating an external css file to style every page.
+I made a simple space grey console that would center itself in the window. I converted the list of links into a row of uniform buttons that lights up when you hover over them and highlights whatever page you're currently on.
+
+The most time consuming page was the editor as it had the entire control panel to take into consideration. When I added the style that every page adapted to fine, the control panel threw the alignment of the other sections off, so I added an extra div to flex everything into which fixed the issue.
+
+I didn't take a full screen screenshot to update preview.jpg as I wasn't sure whether or not the preview had to be the exact size of the javascript canvas.
+
+
 #### REFLECTION
 
 Overall, I find my final design quite endearing. 
 
+I think I had the most knowledge and the most fun with this assignment. I especially enjoyed the challenge of switching between the multiple coding languages when styling and tweaking aspects of the website itself.
 
+Although I am pretty happy with my final product, there are still many things I would've liked to add and improve. 
+
+If I had more time, I would improve Albert's talking animation so that it didn't just pop into existence. Another idea was to give Al multiple mouth sprites which changed depending on the sound of the letters typed.
+
+I also would come up with a more designed website as it's pretty basic, but still better than an unformatted one. I was also trying change the sliders of the editor to match the aethstetic of the rest of my project but never managed to figure that out.
 
 
 ### REFERENCES
@@ -77,44 +95,3 @@ https://www.youtube.com/watch?v=PEO4fhXMQ9s&ab_channel=KevinWorkman
 
 **Key Press Detection:**
 https://stackoverflow.com/questions/52882144/replacement-for-deprecated-keypress-dom-event 
-
-
-
-(Replace this README with information about your alphabet. This is an example.)
-
-Each of my letters is composed with two circles. The size and position of the first circle is fixed, but the location and size of the second circle is controlled by three parameters.
-
-The three parameters per letter:
-  * `size` : radius of the second circle
-  * `offsetx` : x offset of the second circle relative to the first one
-  * `offsety` : y offset of the second circle relative to the first one
-
-test
-
-create basic abcs wih circles for rounded 70s text, dont really like how it looks
-
-
-experimented w/ curves
-
-abandoned those and made minecraft thing/unown
-
-glow: https://www.youtube.com/watch?v=iIWH3IUYHzM 
-interpolates
-
-
-
-monster alien speech bubble
-comic sans of aliens
-
-draw loop in exhibition, under system background colour
-
-
-baby became alien ctrying to talk to human
-did a bunch of art
-variability when they talk, mouth tied into variabe in interp letter
-space bobbing 
-https://www.youtube.com/watch?v=PEO4fhXMQ9s&ab_channel=KevinWorkman 
-
-
-
-
