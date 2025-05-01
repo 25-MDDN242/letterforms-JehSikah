@@ -9,39 +9,7 @@ var stroke2 = "#c264da";
 var bubble = "#cf94ff20";
 
 var strW = 12;
-
 var isTalk;
-
-/*
-ffffff10
-#150b27aa
-#cf94ff
-
-light tan: #efecd2
-bright purp: #be4adb
-#c264da
-
-#b83574
-#ce6798
-#f770a7
-#9751bb
-#6a50a8
-
-colour picked
-#a09172
-#625844
-#f3ea89
-#b688ad
-
-*/
-
-/*
- * Draw the letter given the letterData
- *
- * Letters should always be drawn with the
- * following bounding box guideline:
- * from (0,0) to (100, 200)
- */
 
 function drawLetter(letterData) {
 
@@ -195,5 +163,6 @@ function interpolate_letter(percent, oldObj, newObj) {
 var swapWords = [
   "GREETING",
   "ARRIVAL?",
-  "?FRIEND?"
+  "?FRIEND?",
+  "GALACTIC"
 ]

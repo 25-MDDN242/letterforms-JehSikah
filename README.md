@@ -2,7 +2,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=18842557&assignment_repo_type=AssignmentRepo)
 ## MDDN 242 2025 Assignment 2
 
-# TITLE
+# The Greeting
 by Jess Merriman
 
 *Pages: https://25-mddn242.github.io/letterforms-JehSikah/*
@@ -13,7 +13,6 @@ by Jess Merriman
 My design process started by looking into interesting fonts for inspiration. 
 Initially, I was inspired by funky 70's fonts cause of their fun aethstetic. From these, I mainly wanted to implement the bright colours and fun curves.
 
-///INSERT IMAGE///
 ![70's Font Precedents](RMimages/70font.jpg?raw=true "70's Font Precedents")
 
 I first tried mimicing the flow with bezier curves, however, that was quickly pushing me to the variable limit as well as not looking quite how I wanted it. Trying to manipulate a curve into a nice letter was taking me an embarrassingly long time, so I eventually decided to go a new direction.
@@ -23,6 +22,8 @@ I first tried mimicing the flow with bezier curves, however, that was quickly pu
 
 Inspired by Minecraft's enchanting table UI, I chose to replicate the Standard Galactic Alphabet. To stay under the variable limit, I aimed to create the letters in the least amount of parts possible while still looking relatively similar to the original font.
 
+![Minecraft Precedent](RMimages/enchanting.png?raw=true "Minecraft Precedent")
+
 To do this, I picked out the main features of the font. This original consisted of a lot of straight lines but I make wanted a more rounded version. 
 (*I was also unaware the Standard Galactic Alphabet had numbers as the pictures I was using didn't include them, so I made my own*)
 
@@ -30,7 +31,7 @@ I ended up using a line, circle and an arc.
 
 I started by taking an image of the original alphabet and drawing over it using only my three shapes.
 
-///INSERT IMAGE///
+![Alphabet Planning](RMimages/alphabet.png?raw=true "Alphabet Planning")
 
 #### CODE
 
