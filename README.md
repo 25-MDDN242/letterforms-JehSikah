@@ -32,6 +32,7 @@ I ended up using a line, circle and an arc.
 I started by taking an image of the original alphabet and drawing over it using only my three shapes.
 
 ![Alphabet Planning](RMimages/alphabet.png?raw=true "Alphabet Planning")
+<img src="RMimages/alphabet.png" width="200">
 
 #### CODE
 
