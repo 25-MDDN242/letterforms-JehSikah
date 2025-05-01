@@ -7,9 +7,8 @@ by Jess Merriman
 
 *Pages: https://25-mddn242.github.io/letterforms-JehSikah/*
 
-### MY DESIGN PROCESS
-
-#### PRECEDENTS
+## MY DESIGN PROCESS
+### PRECEDENTS
 My design process started by looking into interesting fonts for inspiration. 
 Initially, I was inspired by funky 70's fonts cause of their fun aethstetic. From these, I mainly wanted to implement the bright colours and fun curves.
 
@@ -18,8 +17,7 @@ Initially, I was inspired by funky 70's fonts cause of their fun aethstetic. Fro
 I first tried mimicing the flow with bezier curves, however, that was quickly pushing me to the variable limit as well as not looking quite how I wanted it. Trying to manipulate a curve into a nice letter was taking me an embarrassingly long time, so I eventually decided to go a new direction.
 
 
-#### RESET
-
+### RESET
 Inspired by Minecraft's enchanting table UI, I chose to replicate the Standard Galactic Alphabet. To stay under the variable limit, I aimed to create the letters in the least amount of parts possible while still looking relatively similar to the original font.
 
 ![Minecraft Precedent](RMimages/enchanting.png?raw=true "Minecraft Precedent")
@@ -32,10 +30,8 @@ I ended up using a line, circle and an arc.
 I started by taking an image of the original alphabet and drawing over it using only my three shapes.
 
 ![Alphabet Planning](RMimages/alphabet.png?raw=true "Alphabet Planning")
-<img src="RMimages/alphabet.png" width="200">
 
-#### CODE
-
+### CODE
 After planning out my alphabet, I coded a 5x5 grid and coordinated the x and y values of each shape to be centered in a cell of the grid. This ensured every letter was drawn within the same scale and alignment.
 
 After drawing out the bare bones of my font, I experimented with how I could make it more visually interesting.
@@ -48,8 +44,7 @@ Finally, I added extra thinner strokes to the arc and circle parts of my letters
 At this point, I was pretty happy with my font, but it was still quite plain to look at, especially compared to a lot of other shared works in class. 
 
 
-#### DECORATING
-
+### DECORATING
 Instead of adding more to my font, I added to the background. 
 Since my font is pretty unintelligable, for my first test I drew a simple baby learning how to speak. 
 
@@ -62,7 +57,7 @@ While on an animation high, I thought it'd be nice to add a bit of movement to t
 Finally, I added a feature that highlights each letter when typed to bring attention back to the font. This feature looks pretty nice when the code autoswaps words.
 
 
-#### CSS
+### CSS
 On the final day of this project, I decided to style the website itself. I wanted to make a control panel as if you were ground control observing the interaction between the astronaut and Albert. 
 
 I started by just coding internally, but since almost all the html files were layed out the same, I ended up creating an external css file to style every page.
@@ -73,8 +68,7 @@ The most time consuming page was the editor as it had the entire control panel t
 I didn't take a full screen screenshot to update preview.jpg as I wasn't sure whether or not the preview had to be the exact size of the javascript canvas.
 
 
-#### REFLECTION
-
+### REFLECTION
 Overall, I find my final design quite endearing. 
 
 I think I had the most knowledge and the most fun with this assignment. I especially enjoyed the challenge of switching between the multiple coding languages when styling and tweaking aspects of the website itself.
